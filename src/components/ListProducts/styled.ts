@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 export const ContainerProducts = styled.section`
   flex-grow: 1;
+  min-height: 100vh;
+
 
   .produtos-list {
     display: flex;

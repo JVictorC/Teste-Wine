@@ -1,26 +1,25 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import Image from 'next/image';
-import {
-  ContainerProducts,
-  Produtos,
-  SubTitle,
-} from './styled';
+import { ContainerProducts, Produtos, SubTitle } from './styled';
 import axios from 'axios';
 import { returnApiProdutos } from '../../interfaces/interfaceApiProdutudos';
 import LoadingComponent from '../LoadingComponents';
 import CardProduto from './components/cardProduto';
+import { useDispatch, useSelector } from 'react-redux';
+import { SetProdutosThunk } from '../../redux/actions';
+import {AplicationState} from '../../redux/store'
+import { useRouter } from 'next/router';
 
 export default function ListProducts() {
-  const [products, setProducts] = useState<returnApiProdutos>({});
+  const products = useSelector((state: AplicationState) => state.dadosProdutos.data);
   const [loading, setLoading] = useState(false);
-  const getItens = useCallback(async () => {
+  const dispatch = useDispatch();
+  const router = useRouter();
+
+  const getItens = useCallback(() => {
     setLoading(true);
-    const result = await axios.get<returnApiProdutos>(
-      'http://localhost:3000/api/produtos'
-    );
-    setProducts(result.data);
+    dispatch(SetProdutosThunk(Number(router.query.page)));
     setLoading(false);
-  }, []);
+  }, [dispatch, router]);
 
   useEffect(() => {
     getItens();

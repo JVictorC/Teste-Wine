@@ -1,4 +1,6 @@
 import Head from 'next/head';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 import Filter from '../components/Filter';
 import Header from '../components/Header/';
 import ListProducts from '../components/ListProducts';
@@ -7,6 +9,13 @@ import GlobalStyle from '../globalCss';
 import { BodyHome } from './bodyHome';
 
 export default function Home() {
+  const router = useRouter();
+
+  useEffect(() => {
+    router.push('/?page=1')
+  }, []);
+
+
   return (
     <div>
       <Head>

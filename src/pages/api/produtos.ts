@@ -3,8 +3,9 @@ import {getProdutos} from '../../services/getProduts';
 
 export default async function produtos(req, res) {
   const method = req.method
+  const query = req.query;
   if(method === 'GET') {
-    const restult = await getProdutos();
+    const restult = await getProdutos(Number(query.page));
     res.status(200).json(restult)
   }
 }
