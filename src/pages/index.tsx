@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
@@ -6,7 +8,7 @@ import Header from '../components/Header/';
 import ListProducts from '../components/ListProducts';
 import Paginacao from '../components/Paginação';
 import GlobalStyle from '../globalCss';
-import { BodyHome } from './bodyHome';
+import BodyHome from './bodyHome';
 
 export default function Home() {
   const router = useRouter();

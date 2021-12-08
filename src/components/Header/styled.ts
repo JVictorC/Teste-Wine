@@ -28,7 +28,11 @@ export const ListLinksStyled = styled.ul`
   padding: 0px 15px;
 `;
 
-export const LinksStyled = styled.a`
+interface LinksStyledProps {
+  isSelected: boolean;
+}
+
+export const LinksStyled = styled.a<LinksStyledProps>`
   opacity: 0.9;
   cursor: pointer;
   color: gray;
@@ -63,7 +67,11 @@ export const IconSearch = styled.div`
   width: 56px;
 `;
 
-export const Icon = styled.div`
+interface IconPorps {
+  icon?: String;
+}
+
+export const Icon = styled.div<IconPorps>`
   position: relative;
   cursor: pointer;
   margin: 16px 20px;

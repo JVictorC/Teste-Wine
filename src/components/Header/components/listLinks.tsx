@@ -4,7 +4,7 @@ import LinkHeader from './link';
 
 export default function ListLinks() {
 
-  const [linkSelected, setLinkSelected] = useState<String>('');
+  const [linkSelected, setLinkSelected] = useState<String>('Loja');
 
   const listLinksNames = ['Clube', 'Loja', 'Produtores', 'Ofertas', 'Eventos'];
 

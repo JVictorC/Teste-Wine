@@ -12,15 +12,12 @@ import { AiOutlineMenu } from 'react-icons/ai';
 import ListLinks from './components/listLinks';
 import ImageIcons from './components/imageIcons';
 
-interface event {
-  target: String;
-}
 
 export default function Header() {
   return (
     <HeaderStyled>
       <MenuHeader>
-        <AiOutlineMenu className="icon-menu"/>
+        <AiOutlineMenu />
         <Image src="/logoWine.svg" alt="logo Wine" width="70" height="70" />
       </MenuHeader>
       <ListLinks />

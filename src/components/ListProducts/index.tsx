@@ -14,10 +14,15 @@ export default function ListProducts() {
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
   const router = useRouter();
+  const {page, filter} = router.query;
+
 
   const getItens = useCallback(() => {
     setLoading(true);
-    dispatch(SetProdutosThunk(Number(router.query.page)));
+
+    console.log(filter);
+    
+    dispatch(SetProdutosThunk(Number(page), `${filter}` || '0'));
     setLoading(false);
   }, [dispatch, router]);
 
@@ -33,13 +38,15 @@ export default function ListProducts() {
         ) : (
           <span className="total-produtos">{products.totalItems}</span>
         )}
-        Produtos encontrados
+        {
+          products.totalItems === 0 ? 'Nenhum Produto Encontrado' : 'Produtos encontrados'
+        }
       </SubTitle>
       <div className="produtos-list">
         {loading ? (
           <LoadingComponent size={75} />
         ) : (
-          <Produtos isLoading={loading}>
+          <Produtos>
             {products.items?.map((produto) => (
               <CardProduto key={produto.id} produto={produto} />
             ))}

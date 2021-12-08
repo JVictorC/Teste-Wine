@@ -8,6 +8,7 @@ interface Action {
 
 const INITIAL_STATE: ProdutosState = {
   data: {},
+  hasFilter: false,
 };
 
 const dadosProdutos: Reducer<ProdutosState, Action> = (
@@ -17,7 +18,7 @@ const dadosProdutos: Reducer<ProdutosState, Action> = (
   const { payload, type } = action;
   switch (type) {
     case ActiosTypes.SET_PRODUTOS:
-      return { data: payload };
+      return { ...state, data: payload };
     default:
       return state;
   }

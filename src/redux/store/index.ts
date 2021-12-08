@@ -7,7 +7,6 @@ import rootReducer from '../reducers'
 
 export interface AplicationState {
   dadosProdutos: ProdutosState,
-  pageSelecionada: PageSeleted
 }
 
 const store = createStore(

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const BodyHome = styled.div`
+const BodyHome = styled.div`
   padding: 0px 70px;
   padding-top: 100px;
   display: flex;
@@ -8,3 +8,5 @@ export const BodyHome = styled.div`
   justify-content: space-around;
   align-items: baseline
 `;
+
+export default BodyHome;

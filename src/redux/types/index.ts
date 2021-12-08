@@ -5,9 +5,6 @@ export enum ActiosTypes {
 } 
 
 export interface ProdutosState {
-  readonly data: returnApiProdutos
-}
-
-export interface PageSeleted {
-  page: number;
+  readonly data: returnApiProdutos,
+  readonly hasFilter: boolean,
 }
