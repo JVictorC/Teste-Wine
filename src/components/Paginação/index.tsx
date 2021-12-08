@@ -1,3 +1,4 @@
+import { route } from 'next/dist/server/router';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
@@ -28,6 +29,11 @@ export default function Paginacao() {
   }, [dadosProdutos]);
 
   const HandleClickDirect = (pageSelected: number) => {
+    const path = router.query;
+    if(path.filter) {
+      router.push(`/?page=${pageSelected}&filter=${path.filter}`)
+      return;
+    }
     router.push(`/?page=${pageSelected}`);
   };
 
