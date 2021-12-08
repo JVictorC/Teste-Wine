@@ -3,9 +3,16 @@ import styled from 'styled-components';
 const colorSelected = '#d14c8f';
 
 export const HeaderStyled = styled.div`
+  position: fixed;
   display: flex;
-  justify-content: space-evenly;
+  width: 100%;
+  background-color: white;
+  justify-content: space-between;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+  z-index: 1000;
+  @media (min-width: 800px) {
+    justify-content: space-evenly;
+  }
 `;
 
 export const ListLinksStyled = styled.ul`
@@ -15,6 +22,7 @@ export const ListLinksStyled = styled.ul`
     display: flex;
     justify-content: space-evenly;
     width: 40%;
+    max-width: 300px;
     align-items: center;
   }
   padding: 0px 15px;
@@ -34,7 +42,6 @@ export const LinksStyled = styled.a`
 
 export const ListIconsHeader = styled.ul`
   display: flex;
-  width: 20%;
   align-items: center;
   justify-content: space-around;
 
@@ -63,6 +70,11 @@ export const Icon = styled.div`
   width: 56px;
   height: 56px;
   overflow: hidden;
+  display: ${(props) => (props.icon === 'perfil' ? 'none' : 'block')};
+
+  @media (min-width: 800px) {
+    display: block;
+  }
 `;
 
 export const Counter = styled.text`
@@ -77,4 +89,20 @@ export const Counter = styled.text`
   position: absolute;
   right: -1px;
   width: 20px;
+`;
+
+// ref para imagens https://www.wine.com.br/
+
+export const MenuHeader = styled.article`
+  margin: 0px 15px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 20%;
+  font-size: 25px;
+  @media (min-width: 800px) {
+    .icon-menu {
+      display: none;
+    }
+  }
 `;

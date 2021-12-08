@@ -5,11 +5,10 @@ import {
   IconSearch,
   Icon,
   Counter,
+  MenuHeader,
 } from './styled';
 import Image from 'next/image';
-
-import { BsSearch, BsPerson } from 'react-icons/bs';
-import { AiOutlineShoppingCart } from 'react-icons/ai';
+import { AiOutlineMenu } from 'react-icons/ai';
 import ListLinks from './components/listLinks';
 import ImageIcons from './components/imageIcons';
 
@@ -20,14 +19,17 @@ interface event {
 export default function Header() {
   return (
     <HeaderStyled>
-      <Image src="/logoWine.svg" alt="logo Wine" width="70" height="70" />
+      <MenuHeader>
+        <AiOutlineMenu className="icon-menu"/>
+        <Image src="/logoWine.svg" alt="logo Wine" width="70" height="70" />
+      </MenuHeader>
       <ListLinks />
       <ListIconsHeader>
         <li>
           <IconSearch />
         </li>
         <li>
-          <Icon>
+          <Icon icon="perfil">
             <ImageIcons position={56} />
           </Icon>
         </li>

@@ -1,6 +1,10 @@
 import Head from 'next/head';
+import Filter from '../components/Filter';
 import Header from '../components/Header/';
+import ListProducts from '../components/ListProducts';
+import Paginacao from '../components/Paginação';
 import GlobalStyle from '../globalCss';
+import { BodyHome } from './bodyHome';
 
 export default function Home() {
   return (
@@ -11,6 +15,13 @@ export default function Home() {
       </Head>
       <GlobalStyle />
       <Header />
+      <BodyHome>
+        <Filter />
+        <div>
+          <ListProducts />
+          <Paginacao />
+        </div>
+      </BodyHome>
     </div>
   );
 }

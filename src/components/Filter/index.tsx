@@ -1,0 +1,36 @@
+import React from 'react';
+import {
+  FilterComponent,
+  ListPrices,
+  SectionFilter,
+  NameFilter,
+  LabelFilter,
+  TitleFilter,
+} from './styled';
+
+export default function Filter() {
+  const arrayRadios = [
+    'Até R$40',
+    'R$40 A R$60',
+    'R$100 A R$200',
+    'R$200 A R$500',
+    'Acima de R$500',
+  ];
+
+  return (
+    <FilterComponent>
+      <TitleFilter>Refine sua Busca</TitleFilter>
+      <SectionFilter>
+        <h6 style={{fontWeight: '500'}}>Por Preço</h6>
+        <ListPrices>
+          {arrayRadios.map((name) => (
+            <LabelFilter htmlFor={name} key={name}>
+              <input type="radio" name="filterPrice" id={name} />
+              <NameFilter>{name}</NameFilter>
+            </LabelFilter>
+          ))}
+        </ListPrices>
+      </SectionFilter>
+    </FilterComponent>
+  );
+}
