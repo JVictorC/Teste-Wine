@@ -24,12 +24,12 @@ export const SetProdutosThunk =
   (page: number, filter: string) => async (dispatch) => {
     if (filter !== '0') {
       const result = await axios.get<returnApiProdutos>(
-        `http://localhost:3000/api/produtos/paginacao?page=${page}&filter=${filter}`
+        `/api/produtos/paginacao?page=${page}&filter=${filter}`
       );
       dispatch(setProdutos(result.data));
     } else {
       const result = await axios.get<returnApiProdutos>(
-        `http://localhost:3000/api/produtos/paginacao?page=${page}`
+        `/api/produtos/paginacao?page=${page}`
       );
       dispatch(setProdutos(result.data));
     }

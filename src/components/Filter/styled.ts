@@ -27,16 +27,23 @@ export const NameFilter = styled.span`
   align-self: baseline;
   font-size: 10px;
   margin-left: 10px;
+  font-size: 15px;
 `;
 
 export const LabelFilter = styled.label`
   display: flex;
   align-items: center;
+  cursor: pointer;
+
+  input {
+    cursor: pointer;
+  }
 `;
 
 export const TitleFilter = styled.h6`
   font-family: 'Sans';
   font-weight: 600;
+  font-size: 15px;
 `;
 
 export const SectionFilter = styled.section`
@@ -45,4 +52,11 @@ export const SectionFilter = styled.section`
   flex-direction: column;
   flex-grow: 1;
   justify-content: space-around;
+
+  h6 {
+    font-weight: 500;
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+
 `;

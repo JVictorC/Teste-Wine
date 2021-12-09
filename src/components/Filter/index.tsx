@@ -46,7 +46,7 @@ export default function Filter() {
     <FilterComponent data-cy="component-filter">
       <TitleFilter>Refine sua Busca</TitleFilter>
       <SectionFilter>
-        <h6 style={{ fontWeight: '500' }}>Por Preço</h6>
+        <h6>Por Preço</h6>
         <ListPrices>
           {arrayRadios.map((name) => (
             <LabelFilter htmlFor={name} key={name} data-cy={name}>
