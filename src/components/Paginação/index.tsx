@@ -25,6 +25,7 @@ export default function Paginacao() {
   const colorSelected = '#b6116e';
 
   useEffect(() => {
+    console.log(dadosProdutos);
     setPaginaSelecionata(dadosProdutos.page);
   }, [dadosProdutos]);
 
