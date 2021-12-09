@@ -49,11 +49,10 @@ export default function Filter() {
         <h6 style={{ fontWeight: '500' }}>Por Preço</h6>
         <ListPrices>
           {arrayRadios.map((name) => (
-            <LabelFilter htmlFor={name} key={name}>
+            <LabelFilter htmlFor={name} key={name} data-cy={name}>
               <input
                 type="radio"
                 name="filterPrice"
-                data-cy={name}
                 id={name}
                 onClick={() => filterItens(name)}
               />

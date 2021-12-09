@@ -5,7 +5,7 @@ import { returnApiProdutos } from '../../interfaces/interfaceApiProdutudos';
 import LoadingComponent from '../LoadingComponents';
 import CardProduto from './components/cardProduto';
 import { useDispatch, useSelector } from 'react-redux';
-import { SetProdutosThunk } from '../../redux/actions';
+import { setLoadingProdutos, SetProdutosThunk } from '../../redux/actions';
 import { AplicationState } from '../../redux/store';
 import { useRouter } from 'next/router';
 
@@ -28,6 +28,7 @@ export default function ListProducts() {
   }, [dispatch, router]);
 
   useEffect(() => {
+    dispatch(setLoadingProdutos(true));
     getItens();
   }, [getItens]);
 

@@ -52,7 +52,7 @@ export default function CardProduto(props: propsInterface) {
   };
 
   return (
-    <div key={produto.id}>
+    <div key={produto.id} data-cy={`card-produto-${produto.id}`}>
       <Card onClick={() => redictDetalhes()}>
         <section className="images">
           <Image
