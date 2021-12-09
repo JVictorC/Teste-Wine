@@ -1,5 +1,6 @@
 Boa Vindas, para rodar essse projeto seguir os seguintes passos:
 
+Vercel : https://wine-teste-pratico-e7p8c1cuc-jvictorc.vercel.app/
 
 1 - git clone git@github.com:JVictorC/Teste-Wine.git
 
