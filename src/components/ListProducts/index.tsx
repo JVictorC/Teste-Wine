@@ -18,9 +18,11 @@ export default function ListProducts() {
   const router = useRouter();
 
   const getItens = useCallback(() => {
-    const { page, filter } = router.query;
+    const { pageQuery, filterQuery } = router.query;
     setLoading(true);
-    dispatch(SetProdutosThunk(Number(page), `${filter}` || '0'));
+    const filter = filterQuery ? filterQuery : '0'
+    const page = pageQuery ? pageQuery : 1;
+    dispatch(SetProdutosThunk(Number(page), `${filter}`));
     setLoading(false);
   }, [dispatch, router]);
 

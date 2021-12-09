@@ -34,26 +34,31 @@ export default function Header() {
 
   return (
     <>
-      <HeaderStyled>
+      <HeaderStyled data-cy="header">
         <Menu>
           <MenuHeader>
             <AiOutlineMenu className="icon-menu" />
-            <Image src="/logoWine.svg" alt="logo Wine" width={70} height={70} />
+            <Image
+              src="/logoWine.svg"
+              alt="logo Wine"
+              width={70}
+              height={70}
+            />
             <ListLinks />
           </MenuHeader>
           <ListIconsHeader>
-            <li>
+            <li data-cy="procurar">
               <IconSearch onClick={() => setShowSearchBar(!showSearchBar)} />
             </li>
-            <li>
+            <li data-cy="perfil">
               <Icon icon="perfil">
                 <ImageIcons position={56} />
               </Icon>
             </li>
-            <li>
+            <li data-cy="carrinho">
               <Icon>
                 <ImageIcons position={112} />
-                <Counter>{total}</Counter>
+                <Counter data-cy="contador">{total}</Counter>
               </Icon>
             </li>
           </ListIconsHeader>

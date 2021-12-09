@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const colorSelected = '#d14c8f';
 
-export const HeaderStyled = styled.div`
+export const HeaderStyled = styled.section`
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -18,24 +18,34 @@ export const Menu = styled.article`
 `;
 
 export const BarraDeProcuraStyled = styled.article`
-  width: 80%;
-  align-self: center;
   padding: 10px;
+  width: 90%;
+  align-self: center;
 
   input {
-    width: 65%;
-    margin: 0 25px;
+    width: 90%;
+    margin-top: 15px;
     padding: 15px;
     border-radius: 10px;
     font-size: 20px;
+
+    @media(min-width: 900px) {
+      width: 55%;
+      margin: 0 25px;
+    }
   }
 
   button {
     padding: 20px 30px;
     border-radius: 5px;
+    margin: 15px 0;
+    width: 100%;
     border: none;
     color: white;
     background-color: #b6116e;
+    @media(min-width: 900px) {
+      width: 20%;
+    }
   }
 
 `;

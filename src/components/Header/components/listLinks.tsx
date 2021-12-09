@@ -3,7 +3,6 @@ import { ListLinksStyled } from '../styled';
 import LinkHeader from './link';
 
 export default function ListLinks() {
-
   const [linkSelected, setLinkSelected] = useState<String>('Loja');
 
   const listLinksNames = ['Clube', 'Loja', 'Produtores', 'Ofertas', 'Eventos'];
@@ -13,10 +12,13 @@ export default function ListLinks() {
   };
 
   return (
-    <ListLinksStyled>
+    <ListLinksStyled data-cy="links">
       {listLinksNames.map((linkName) => (
         <li key={linkName} onClick={() => handleClickDirect(linkName)}>
-          <LinkHeader isSelected={linkSelected === linkName} name={linkName} />
+          <LinkHeader
+            isSelected={linkSelected === linkName}
+            name={linkName}
+          />
         </li>
       ))}
     </ListLinksStyled>

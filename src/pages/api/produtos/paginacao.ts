@@ -4,9 +4,10 @@ import { getProdutos } from '../../../services/getProdutsPage';
 export default async function paginacao(req, res) {
   const method = req.method;
   const query = req.query;
-  const { page, filter } = query;
+  const { page, filterQuery } = query;
   if (method === 'GET') {
-    const restult = await getProdutos(Number(page), filter || '0');
+    const filter = filterQuery ? filterQuery : '0';
+    const restult = await getProdutos(Number(page), filter);
     res.status(200).json(restult);
   }
 }

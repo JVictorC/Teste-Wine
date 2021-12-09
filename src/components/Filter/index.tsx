@@ -29,6 +29,7 @@ export default function Filter() {
   const router = useRouter();
 
   const filterItens = (filter: string) => {
+    console.log('a');
     router.push(`/?page=1&filter=${convertFilter(filter)}`)
   }
 
