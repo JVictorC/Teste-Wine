@@ -5,6 +5,13 @@ export const ConatainerDetalhes = styled.section`
   margin: 0px 40px;
 `;
 
+export const LoadingDiv = styled.article`
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
 export const Voltar = styled.p`
   display: none;
   @media (min-width: 800px) {
