@@ -5,7 +5,7 @@ import {
   ProductsList,
   returnApiProdutos,
 } from '../../../interfaces/interfaceApiProdutudos';
-import { setProdutos } from '../../../redux/actions';
+import { setLoadingProdutos, setProdutos } from '../../../redux/actions';
 import { BarraDeProcuraStyled } from '../styled';
 
 export default function BarraDeProcura() {
@@ -35,6 +35,7 @@ export default function BarraDeProcura() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    dispatch(setLoadingProdutos(true));
     const arrayFiltered = await filterProdutos(form);
     dispatch(setProdutos(arrayFiltered));
   };

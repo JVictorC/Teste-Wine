@@ -58,4 +58,24 @@ describe('Header', () => {
 
   })
 
+  describe('Barra de Busca', () => {
+    it('deveria estar na tela inicial', () => {
+      cy.visit('http://localhost:3000/');
+      cy.get('[data-cy="header"]').should('exist');
+      cy.get('[data-cy="procurar"]').click();
+      cy.get('#barra-procura').should('exist');
+    });
+
+    it('deveria filtrar os produtos pelo nome', () => {
+      cy.visit('http://localhost:3000/');
+      cy.get('[data-cy="procurar"]').click();
+      cy.get('#barra-procura').should('exist');
+      cy.get('#barra-procura').type('Familia La Mateo')
+      cy.get('form > button').click();
+      cy.get('[data-cy="card-produto-1"').should('exist');
+      cy.get('[data-cy="card-produto-5"]').should('exist');
+
+    })
+  })
+
 })
