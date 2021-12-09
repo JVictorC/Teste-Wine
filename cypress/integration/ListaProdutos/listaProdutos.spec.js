@@ -188,7 +188,7 @@ describe('Lista de Produtos', () => {
     })
   })
 
-  it('quando clicado deeria redirecionar o user para pagina de detalhes', () => {
+  it('Quando clicado deeria redirecionar o user para pagina de detalhes', () => {
     cy.get(`[data-cy="card-produto-0"]`).should('exist');
     cy.get(`[data-cy="card-produto-0"]`).click();
 
@@ -196,6 +196,13 @@ describe('Lista de Produtos', () => {
       .should('exist')
 
     cy.url().should('include', '/produto/0');
+  })
+
+  it.only('Seta de voltar deveria voltar a tela inicial', () => {
+    cy.get(`[data-cy="card-produto-0"]`).should('exist');
+    cy.get(`[data-cy="card-produto-0"]`).click();
+    cy.get('[data-cy="voltar-inicial"]').click();
+    cy.url().should('contain', '/?page=1')
   })
 
 })

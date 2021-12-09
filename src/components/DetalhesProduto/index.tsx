@@ -48,8 +48,8 @@ export default function DetalhesProduto() {
     getItemById();
   }, [getItemById]);
 
-  const votlarPrincipal = () => {
-    router.back();
+  const voltarPrincipal = () => {
+    router.push('/');
   };
 
   return (
@@ -61,7 +61,7 @@ export default function DetalhesProduto() {
       ) : (
         produto && (
           <ConatainerDetalhes>
-            <Voltar onClick={() => votlarPrincipal()}>
+            <Voltar onClick={() => voltarPrincipal()} data-cy="voltar-inicial">
               <IoChevronBack />
               Voltar
             </Voltar>

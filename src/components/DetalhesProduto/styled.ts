@@ -12,8 +12,11 @@ export const LoadingDiv = styled.article`
   align-items: center;
 `
 
-export const Voltar = styled.p`
+export const Voltar = styled.button`
   display: none;
+  background-color: white;
+  border: none;
+
   @media (min-width: 800px) {
     width: 100px;
     font-size: 25px;
@@ -53,7 +56,7 @@ export const ConteudoPrincipal = styled.section`
 export const ImageProduto = styled.article`
   width: 100%;
   @media(min-width: 800px) {
-    width: 70%;
+    width: 60%;
   }
 `;
 
@@ -62,7 +65,7 @@ export const Detalhes = styled.section`
   display: flex;
   flex-direction: column;
   @media(min-width: 800px) {
-    width: 50%;
+    width: 45%;
   }
 `;
 
