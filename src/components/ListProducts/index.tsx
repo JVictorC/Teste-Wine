@@ -6,22 +6,20 @@ import LoadingComponent from '../LoadingComponents';
 import CardProduto from './components/cardProduto';
 import { useDispatch, useSelector } from 'react-redux';
 import { SetProdutosThunk } from '../../redux/actions';
-import {AplicationState} from '../../redux/store'
+import { AplicationState } from '../../redux/store';
 import { useRouter } from 'next/router';
 
 export default function ListProducts() {
-  const products = useSelector((state: AplicationState) => state.dadosProdutos.data);
+  const products = useSelector(
+    (state: AplicationState) => state.dadosProdutos.data
+  );
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
   const router = useRouter();
-  const {page, filter} = router.query;
-
 
   const getItens = useCallback(() => {
+    const { page, filter } = router.query;
     setLoading(true);
-
-    console.log(filter);
-    
     dispatch(SetProdutosThunk(Number(page), `${filter}` || '0'));
     setLoading(false);
   }, [dispatch, router]);
@@ -38,9 +36,9 @@ export default function ListProducts() {
         ) : (
           <span className="total-produtos">{products.totalItems}</span>
         )}
-        {
-          products.totalItems === 0 ? 'Nenhum Produto Encontrado' : 'Produtos encontrados'
-        }
+        {products.totalItems === 0
+          ? 'Nenhum Produto Encontrado'
+          : 'Produtos encontrados'}
       </SubTitle>
       <div className="produtos-list">
         {loading ? (

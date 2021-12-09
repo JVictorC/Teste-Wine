@@ -31,7 +31,7 @@ export default function Especificaçoes(props: iProps) {
   return (
     <EspecificaçõesStyled>
       <div className="dados-pais">
-        <Image src={produto.flag} width={20} height={20} alt="imagem flag" />
+        <Image src={produto.flag} width="20" height="20" alt="imagem flag" />
         <span>{produto.country}</span>
       </div>
       <p>{produto.type}</p>

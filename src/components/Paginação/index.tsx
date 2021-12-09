@@ -37,6 +37,13 @@ export default function Paginacao() {
     router.push(`/?page=${pageSelected}`);
   };
 
+
+  const proximaPagina = () => {
+    setPaginaSelecionata(paginaSelecionada + 1);
+    HandleClickDirect(paginaSelecionada + 1);
+  }
+
+
   return (
     <ComponenteProximo>
       {paginaSelecionada > 1 && (
@@ -73,9 +80,8 @@ export default function Paginacao() {
           )}
         </>
       )}
-
       <p>...</p>
-      <ButttonProximo>{`Próximo >>`}</ButttonProximo>
+      <ButttonProximo onClick={() => proximaPagina()}>{`Próximo >>`}</ButttonProximo>
     </ComponenteProximo>
   );
 }

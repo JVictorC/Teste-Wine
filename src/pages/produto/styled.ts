@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const ConatainerDetalhes = styled.section`
-  padding-top: 120px;
+  padding-top: 50px;
   margin: 0px 40px;
 `;
 

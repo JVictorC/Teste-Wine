@@ -1,8 +1,8 @@
-import { returnApiProdutos, ProductsList } from './../../interfaces/interfaceApiProdutudos';
+import { returnApiProdutos, ProductsList, ProductsListLocal } from './../../interfaces/interfaceApiProdutudos';
 
 export enum ActiosTypes {
   SET_PRODUTOS = "SET_PRODUTOS",
-  SET_DETAILS_PRODUTO = "SET_DETAILS_PRODUTO",
+  SET_CARRINHO = 'SET_CARRINHO',
 } 
 
 export interface ProdutosState {
@@ -11,4 +11,8 @@ export interface ProdutosState {
 
 export interface DetalhesProdutoState {
   readonly data: ProductsList;
+}
+
+export interface Carrinho {
+  readonly data: ProductsListLocal[]
 }

@@ -1,4 +1,4 @@
-import { ProdutosState, DetalhesProdutoState } from './../types/index';
+import { ProdutosState, DetalhesProdutoState, Carrinho } from './../types/index';
 import { createStore, applyMiddleware, Store } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
@@ -7,7 +7,7 @@ import rootReducer from '../reducers'
 
 export interface AplicationState {
   dadosProdutos: ProdutosState,
-  detalhesProduto: DetalhesProdutoState,
+  carrrinho: Carrinho,
 }
 
 const store = createStore(

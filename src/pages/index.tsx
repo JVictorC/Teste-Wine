@@ -3,16 +3,30 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import Filter from '../components/Filter';
 import ListProducts from '../components/ListProducts';
 import Paginacao from '../components/Paginação';
+import { ProductsListLocal } from '../interfaces/interfaceApiProdutudos';
+import { setCarrinho } from '../redux/actions';
 import BodyHome from './bodyHome';
 
 export default function Home() {
   const router = useRouter();
+  const dispatch = useDispatch();
+
+  const getItensLocal = () => {
+    const itens: ProductsListLocal[] = JSON.parse(localStorage.getItem('carrinho'));
+    if(!itens) {
+      return [];
+    }
+    return itens;
+  }
 
   useEffect(() => {
     router.push('/?page=1')
+    const dataLocal = getItensLocal()
+    dispatch(setCarrinho(dataLocal))
   }, []);
 
 

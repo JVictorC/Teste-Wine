@@ -1,5 +1,4 @@
-import { ProductsList } from './../../interfaces/interfaceApiProdutudos';
-import { useRouter } from 'next/router';
+import { ProductsListLocal } from './../../interfaces/interfaceApiProdutudos';
 import axios from 'axios';
 import { returnApiProdutos } from '../../interfaces/interfaceApiProdutudos';
 import { ActiosTypes } from './../types/index';
@@ -10,21 +9,22 @@ export const setProdutos = (payload) => ({
 });
 
 
-export const setDetalhesProdutos = (payload: ProductsList) => ({
-  type: ActiosTypes.SET_DETAILS_PRODUTO,
+export const setCarrinho = (payload: ProductsListLocal[]) => ({
+  type: ActiosTypes.SET_CARRINHO,
   payload,
-});
+})
+
 
 export const SetProdutosThunk =
   (page: number, filter: string) => async (dispatch) => {
     if (filter !== '0') {
       const result = await axios.get<returnApiProdutos>(
-        `http://localhost:3000/api/produtos?page=${page}&filter=${filter}`
+        `http://localhost:3000/api/produtos/paginacao?page=${page}&filter=${filter}`
       );
       dispatch(setProdutos(result.data));
     } else {
       const result = await axios.get<returnApiProdutos>(
-        `http://localhost:3000/api/produtos?page=${page}`
+        `http://localhost:3000/api/produtos/paginacao?page=${page}`
       );
       dispatch(setProdutos(result.data));
     }

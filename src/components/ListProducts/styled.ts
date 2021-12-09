@@ -148,4 +148,5 @@ export const ButtonAddCarrinho = styled.button`
   width: 100%;
   border-radius: 5px;
   margin: 15px;
+  cursor: pointer;
 `;

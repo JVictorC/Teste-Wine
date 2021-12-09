@@ -1,7 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import { getProdutos } from '../../services/getProduts';
+import { getProdutos } from '../../../services/getProdutsPage';
 
-export default async function produtos(req, res) {
+export default async function paginacao(req, res) {
   const method = req.method;
   const query = req.query;
   const { page, filter } = query;

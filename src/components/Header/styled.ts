@@ -3,16 +3,41 @@ import styled from 'styled-components';
 const colorSelected = '#d14c8f';
 
 export const HeaderStyled = styled.div`
-  position: fixed;
   display: flex;
+  flex-direction: column;
   width: 100%;
   background-color: white;
   justify-content: space-between;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
   z-index: 1000;
-  @media (min-width: 800px) {
-    justify-content: space-around;
+`;
+
+export const Menu = styled.article`
+  display: flex;
+  justify-content: space-around;
+`;
+
+export const BarraDeProcuraStyled = styled.article`
+  width: 80%;
+  align-self: center;
+  padding: 10px;
+
+  input {
+    width: 65%;
+    margin: 0 25px;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 20px;
   }
+
+  button {
+    padding: 20px 30px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    background-color: #b6116e;
+  }
+
 `;
 
 export const MenuHeader = styled.article`
@@ -28,10 +53,9 @@ export const MenuHeader = styled.article`
   }
 `;
 
-
 export const ListLinksStyled = styled.ul`
   display: none;
-  
+
   @media (min-width: 800px) {
     display: flex;
     justify-content: space-evenly;
