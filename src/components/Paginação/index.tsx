@@ -16,9 +16,9 @@ export default function Paginacao() {
     (state: AplicationState) => state.dadosProdutos.data
   );
   const router = useRouter();
-  const pageApi = router.query.page;
-  const page2 = Number(pageApi) + 1;
-  const page3 = Number(pageApi) + 2;
+  const pageApi = router.query.page || 1;
+  const page2 = (Number(pageApi) + 1) || 2;
+  const page3 = (Number(pageApi) + 2) || 3;
 
   const [paginaSelecionada, setPaginaSelecionata] = useState<number>(1);
 
@@ -31,25 +31,26 @@ export default function Paginacao() {
 
   const HandleClickDirect = (pageSelected: number) => {
     const path = router.query;
-    if(path.filter) {
-      router.push(`/?page=${pageSelected}&filter=${path.filter}`)
+    if (path.filter) {
+      router.push(`/?page=${pageSelected}&filter=${path.filter}`);
       return;
     }
     router.push(`/?page=${pageSelected}`);
   };
 
-
   const proximaPagina = () => {
     setPaginaSelecionata(paginaSelecionada + 1);
     HandleClickDirect(paginaSelecionada + 1);
-  }
-
+  };
 
   return (
-    <ComponenteProximo>
+    <ComponenteProximo data-cy="paginacao">
       {paginaSelecionada > 1 && (
         <PaginaUm>
-          <OpcaoNavegacaoNormal onClick={() => HandleClickDirect(1)}>
+          <OpcaoNavegacaoNormal
+            onClick={() => HandleClickDirect(1)}
+            data-cy="voltar-inicio"
+          >
             1
           </OpcaoNavegacaoNormal>
           <p>...</p>
@@ -58,6 +59,7 @@ export default function Paginacao() {
       <OpcaoNavegacaoNormal
         onClick={() => HandleClickDirect(paginaSelecionada)}
         color={Number(pageApi) === paginaSelecionada ? colorSelected : 'white'}
+        data-cy="selecionado"
       >
         {paginaSelecionada}
       </OpcaoNavegacaoNormal>
@@ -67,6 +69,7 @@ export default function Paginacao() {
           <OpcaoNavegacaoExpandida
             onClick={() => HandleClickDirect(paginaSelecionada + 1)}
             color={Number(pageApi) === page2 ? colorSelected : 'white'}
+            data-cy="proximo-1"
           >
             {page2}
           </OpcaoNavegacaoExpandida>
@@ -75,6 +78,7 @@ export default function Paginacao() {
             <OpcaoNavegacaoNormal
               onClick={() => HandleClickDirect(paginaSelecionada + 2)}
               color={Number(pageApi) === page3 ? colorSelected : 'white'}
+              data-cy="proximo-2"
             >
               {page3}
             </OpcaoNavegacaoNormal>
@@ -82,7 +86,10 @@ export default function Paginacao() {
         </>
       )}
       <p>...</p>
-      <ButttonProximo onClick={() => proximaPagina()}>{`Próximo >>`}</ButttonProximo>
+      <ButttonProximo
+        onClick={() => proximaPagina()}
+        data-cy="proximo"
+      >{`Próximo >>`}</ButttonProximo>
     </ComponenteProximo>
   );
 }
