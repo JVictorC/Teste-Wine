@@ -39,7 +39,7 @@ export default function ListProducts() {
 
   return (
     <>
-      {true ? (
+      {isLoading ? (
         <ContainerLoading>
           <LoadingComponent size={70} />
         </ContainerLoading>
