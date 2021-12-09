@@ -1,6 +1,9 @@
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { ProductsList } from '../../../interfaces/interfaceApiProdutudos';
+import { setDetalhesProdutos } from '../../../redux/actions';
 import { ButtonAddCarrinho, Card, Price } from '../styled';
 
 interface propsInterface {
@@ -9,10 +12,17 @@ interface propsInterface {
 
 export default function CardProduto(props: propsInterface) {
   const { produto } = props;
+  const router = useRouter();
+  const dispatch = useDispatch();
+
+  const redictDetalhes = () => {
+    dispatch(setDetalhesProdutos(produto));
+    router.push(`produto/${produto.id}`);
+  }
 
   return (
     <div key={produto.id}>
-      <Card>
+      <Card onClick={() => redictDetalhes()}>
         <section className="images">
           <Image src={produto.image} alt={produto.name} height={200} width={150}/>
           <Image src="/logoBlackWine.png" width={50} height={50} alt="icon-blackWine" />

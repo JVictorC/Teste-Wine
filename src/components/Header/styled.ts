@@ -11,17 +11,31 @@ export const HeaderStyled = styled.div`
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
   z-index: 1000;
   @media (min-width: 800px) {
-    justify-content: space-evenly;
+    justify-content: space-around;
   }
 `;
 
+export const MenuHeader = styled.article`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 25px;
+  width: 40%;
+  @media (min-width: 800px) {
+    .icon-menu {
+      display: none;
+    }
+  }
+`;
+
+
 export const ListLinksStyled = styled.ul`
   display: none;
-
+  
   @media (min-width: 800px) {
     display: flex;
     justify-content: space-evenly;
-    width: 40%;
+    flex-grow: 1;
     max-width: 300px;
     align-items: center;
   }
@@ -48,7 +62,6 @@ export const ListIconsHeader = styled.ul`
   display: flex;
   align-items: center;
   justify-content: space-around;
-
   li {
     svg {
       font-size: 30px;
@@ -100,17 +113,3 @@ export const Counter = styled.text`
 `;
 
 // ref para imagens https://www.wine.com.br/
-
-export const MenuHeader = styled.article`
-  margin: 0px 15px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 20%;
-  font-size: 25px;
-  @media (min-width: 800px) {
-    .icon-menu {
-      display: none;
-    }
-  }
-`;

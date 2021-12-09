@@ -17,10 +17,10 @@ export default function Header() {
   return (
     <HeaderStyled>
       <MenuHeader>
-        <AiOutlineMenu />
+        <AiOutlineMenu className="icon-menu"/>
         <Image src="/logoWine.svg" alt="logo Wine" width="70" height="70" />
+        <ListLinks />
       </MenuHeader>
-      <ListLinks />
       <ListIconsHeader>
         <li>
           <IconSearch />

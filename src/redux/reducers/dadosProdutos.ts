@@ -8,7 +8,6 @@ interface Action {
 
 const INITIAL_STATE: ProdutosState = {
   data: {},
-  hasFilter: false,
 };
 
 const dadosProdutos: Reducer<ProdutosState, Action> = (
