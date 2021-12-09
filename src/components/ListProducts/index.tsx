@@ -13,17 +13,18 @@ export default function ListProducts() {
   const products = useSelector(
     (state: AplicationState) => state.dadosProdutos.data
   );
-  const [loading, setLoading] = useState(false);
+  const isLoading = useSelector(
+    (state: AplicationState) => state.dadosProdutos.isLoading
+  );
+
   const dispatch = useDispatch();
   const router = useRouter();
 
   const getItens = useCallback(() => {
-    const { pageQuery, filterQuery } = router.query;
-    setLoading(true);
-    const filter = filterQuery ? filterQuery : '0'
+    const { pageQuery, filter: filerQuery } = router.query;
+    const filter = filerQuery ? filerQuery : '0';
     const page = pageQuery ? pageQuery : 1;
     dispatch(SetProdutosThunk(Number(page), `${filter}`));
-    setLoading(false);
   }, [dispatch, router]);
 
   useEffect(() => {
@@ -31,28 +32,36 @@ export default function ListProducts() {
   }, [getItens]);
 
   return (
-    <ContainerProducts>
-      <SubTitle>
-        {loading ? (
-          <LoadingComponent />
-        ) : (
-          <span className="total-produtos">{products.totalItems}</span>
-        )}
-        {products.totalItems === 0
-          ? 'Nenhum Produto Encontrado'
-          : 'Produtos encontrados'}
-      </SubTitle>
-      <div className="produtos-list">
-        {loading ? (
-          <LoadingComponent size={75} />
-        ) : (
-          <Produtos>
-            {products.items?.map((produto) => (
-              <CardProduto key={produto.id} produto={produto} />
-            ))}
-          </Produtos>
-        )}
-      </div>
-    </ContainerProducts>
+    <>
+      {isLoading ? (
+        <ContainerProducts>
+          <LoadingComponent size={50} />
+        </ContainerProducts>
+      ) : (
+        <ContainerProducts>
+          <SubTitle>
+            {isLoading ? (
+              <LoadingComponent size={15} />
+            ) : (
+              <span className="total-produtos">{products.totalItems}</span>
+            )}
+            {products.totalItems === 0
+              ? 'Nenhum Produto Encontrado'
+              : 'Produtos encontrados'}
+          </SubTitle>
+          <div className="produtos-list">
+            {isLoading ? (
+              <LoadingComponent size={75} />
+            ) : (
+              <Produtos>
+                {products.items?.map((produto) => (
+                  <CardProduto key={produto.id} produto={produto} />
+                ))}
+              </Produtos>
+            )}
+          </div>
+        </ContainerProducts>
+      )}
+    </>
   );
 }

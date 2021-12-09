@@ -3,26 +3,26 @@
 describe('Header', () => {
   it('deveria estar na tela inicial', () => {
     cy.visit('http://localhost:3000/');
-    cy.get('[data-cy="header"]');
+    cy.get('[data-cy="header"]').should('exist');
   });
 
   it('deveria conter o icon Wine', () => {
     cy.visit('http://localhost:3000/');
-    cy.get('[alt="logo Wine"]');
+    cy.get('[alt="logo Wine"]').should('exist');
   });
 
   it('deveria conter todos os links', () => {
     cy.visit('http://localhost:3000/');
     ['Clube', 'Loja', 'Produtores', 'Ofertas', 'Eventos'].forEach((link) => {
-      cy.get(`[data-cy=${link}]`);
+      cy.get(`[data-cy=${link}]`).should('exist');
     })
   });
 
   it('deveria ter os 3 Icons', () => {
     cy.visit('http://localhost:3000/');
-    cy.get('[data-cy="procurar"]');
-    cy.get('[data-cy="perfil"]');
-    cy.get('[data-cy="carrinho"]');
+    cy.get('[data-cy="procurar"]').should('exist');
+    cy.get('[data-cy="perfil"]').should('exist');
+    cy.get('[data-cy="carrinho"]').should('exist');
   })
 
   it('deveria conter a quantidade de itens no carrinho', () => {

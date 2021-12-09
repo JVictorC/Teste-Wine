@@ -14,6 +14,11 @@ export const setCarrinho = (payload: ProductsListLocal[]) => ({
   payload,
 })
 
+export const setLoadingProdutos = (payload: boolean) => ({
+  type: ActiosTypes.SET_LOADING_PRODUTOS,
+  payload,
+})
+
 
 export const SetProdutosThunk =
   (page: number, filter: string) => async (dispatch) => {

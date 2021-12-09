@@ -9,7 +9,7 @@ export const RotadedIcon = styled.span<IProps>`
   .spiner {
     animation: myRotation 1s linear infinite;
     padding: 0px 15px;
-    font-size: ${(props) => `${props.size}` };
+    font-size: ${(props) => `${props.size}px` };
   }
 
   @keyframes myRotation {
