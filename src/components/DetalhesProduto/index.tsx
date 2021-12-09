@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { AplicationState } from '../../redux/store';
+import { AplicationState } from '../../redux/store'
 import Image from 'next/image';
 import {
   ConatainerDetalhes,
@@ -23,7 +23,7 @@ import {
   ProductsList,
   returnApiProdutos,
 } from '../../interfaces/interfaceApiProdutudos';
-import { Produtos } from '../../components/ListProducts/styled';
+
 
 export default function DetalhesProduto() {
   const router = useRouter();
