@@ -58,6 +58,7 @@ export default function CardProduto(props: propsInterface) {
           <Image
             src={produto.image}
             alt={produto.name}
+            data-cy={`image-${produto.id}`}
             height={200}
             width={150}
           />

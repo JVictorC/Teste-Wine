@@ -69,7 +69,7 @@ export default function DetalhesProduto() {
                   src={produto.image}
                   height={800}
                   width={500}
-                  alt="imagem produto"
+                  alt={`imagem do produto ${produto.name}`}
                 />
               </ImageProduto>
             </div>
