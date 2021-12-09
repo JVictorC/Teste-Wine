@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const FilterComponent = styled.div`
-  width: 250px;
+  width: 300px;
   height: 250px;
   margin-right: 50px;
   background-color: white;

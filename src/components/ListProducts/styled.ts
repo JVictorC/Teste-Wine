@@ -150,3 +150,9 @@ export const ButtonAddCarrinho = styled.button`
   margin: 15px;
   cursor: pointer;
 `;
+
+export const ContainerLoading = styled.article`
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+`

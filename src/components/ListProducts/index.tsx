@@ -1,5 +1,10 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { ContainerProducts, Produtos, SubTitle } from './styled';
+import {
+  ContainerLoading,
+  ContainerProducts,
+  Produtos,
+  SubTitle,
+} from './styled';
 import axios from 'axios';
 import { returnApiProdutos } from '../../interfaces/interfaceApiProdutudos';
 import LoadingComponent from '../LoadingComponents';
@@ -34,10 +39,10 @@ export default function ListProducts() {
 
   return (
     <>
-      {isLoading ? (
-        <ContainerProducts>
-          <LoadingComponent size={50} />
-        </ContainerProducts>
+      {true ? (
+        <ContainerLoading>
+          <LoadingComponent size={70} />
+        </ContainerLoading>
       ) : (
         <ContainerProducts>
           <SubTitle>
