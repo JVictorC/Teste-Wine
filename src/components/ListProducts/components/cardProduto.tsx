@@ -99,7 +99,7 @@ export default function CardProduto(props: propsInterface) {
             ))}
         </p>
       </Card>
-      <ButtonAddCarrinho onClick={() => addProdutoNoCarrino()}>
+      <ButtonAddCarrinho onClick={() => addProdutoNoCarrino()} data-cy="adicionar-ao-carrinho">
         Adicionar
       </ButtonAddCarrinho>
     </div>
